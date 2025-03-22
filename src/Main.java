@@ -32,23 +32,26 @@ public class Main {
         HashMap<Integer , String> words = new HashMap<>();
 
         while (true){
-            System.out.println("Enter a number(enter -1 to end) :");
+            System.out.println("Enter a number (enter -1 to end) :");
             int number = scanner.nextInt();
             scanner.nextLine();
+
             if(number == -1){
                 return words ;
             }
+
             System.out.println("Enter a word for number " + number + " :");
             String word = scanner.nextLine();
+
             words.put(number , word);
         }
     }
 
     public static String stringAdd(int num , HashMap<Integer,String> hashMap ){
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for(Map.Entry<Integer,String> entry : hashMap.entrySet()){
-            output += wordAdd(num , entry.getKey() , entry.getValue());
+            output.append(wordAdd(num, entry.getKey(), entry.getValue()));
         }
-        return output;
+        return output.toString();
     }
 }
